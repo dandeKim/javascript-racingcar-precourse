@@ -20,8 +20,13 @@ export default class RacingCarGame {
     hideContainer(this.$gameResultContainer);
   };
 
+  resetGameStatus = () => {
+    this.gameStatus = { count: 0, players: [] };
+  };
+
   render = () => {
     this.getDOMElements();
     this.resetDOMElements();
+    this.resetGameStatus();
   };
 }
