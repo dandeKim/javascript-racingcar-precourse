@@ -1,0 +1,9 @@
+#racing-count-container,
+#game-result-container {
+  display: none;
+}
+
+#racing-count-container.active,
+#game-result-container.active {
+  display: block;
+}
