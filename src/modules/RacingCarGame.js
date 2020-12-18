@@ -28,7 +28,6 @@ export default class RacingCarGame {
   createNewComponent = () => {
     this.carNameForm = new CarNameForm(this.setPlayers);
     this.racingCountForm = new RacingCountForm(this.setCount);
-    this.gameResultContainer = new GameResultContainer();
     this.gameResultContainer = new GameResultContainer(
       this.getPlayers,
       this.getWinners
@@ -45,6 +44,7 @@ export default class RacingCarGame {
     this.gameStatus.count = count;
 
     showContainer(this.$gameResultContainer);
+    this.play();
   };
 
   getPlayers = () => {
@@ -56,6 +56,14 @@ export default class RacingCarGame {
     const maxStep = getMaxStep(racingCars);
 
     return racingCars.filter(car => car.getStep() === maxStep);
+  };
+
+  play = () => {
+    while (this.gameStatus.count > 0) {
+      this.gameStatus.players.forEach(car => car.move());
+      this.$gameResultContainer.innerHTML += this.gameResultContainer.createResultHTML();
+      this.gameStatus.count--;
+    }
   };
 
   resetGameStatus = () => {
