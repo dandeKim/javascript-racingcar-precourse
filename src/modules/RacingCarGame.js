@@ -26,7 +26,7 @@ export default class RacingCarGame {
 
   createNewComponent = () => {
     this.carNameForm = new CarNameForm(this.setPlayers);
-    this.racingCountForm = new RacingCountForm();
+    this.racingCountForm = new RacingCountForm(this.setCount);
     this.gameResultContainer = new GameResultContainer();
   };
 
