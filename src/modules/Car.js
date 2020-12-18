@@ -1,3 +1,6 @@
+import { NUMBER } from "../utils/constants.js";
+import { getRandomNumber } from "../utils/util.js";
+
 export default class Car {
   constructor(name) {
     this._name = name;
@@ -5,7 +8,9 @@ export default class Car {
   }
 
   move = () => {
-    this._step++;
+    if (getRandomNumber() >= NUMBER.ADD_STEP_STANDARD) {
+      this._step++;
+    }
   };
 
   getName = () => {
