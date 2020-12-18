@@ -9,7 +9,8 @@ export const ID = {
 };
 
 export const ALERT = {
-  NAME_INPUT_ALERT: "5자 이하의 이름을 콤마로 구분하여 입력해주세요.",
+  NAME_INPUT_ALERT:
+    "5자 이하의 이름을 콤마로 구분하여 입력해주세요. 차는 최소 2대 이상이어야 합니다.",
   DUPLICATED_NAME_ALERT: "중복된 이름이 존재합니다.",
   INCORRECT_NUMBER_ALERT:
     "최소 한 번 이상 시도해야 합니다. 1 이상의 수를 입력해주세요.",
