@@ -1,5 +1,5 @@
 import { ID } from "../utils/constants.js";
-import { getCarNamesList } from "../utils/carNameUtil.js";
+import { getCarNamesList } from "../utils/util.js";
 import { isValidCarNames } from "../utils/validations.js";
 
 export default class CarNameForm {
