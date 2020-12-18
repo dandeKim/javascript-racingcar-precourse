@@ -1,9 +1,10 @@
+import Car from "./Car.js";
 import CarNameForm from "./CarNameForm.js";
 import RacingCountForm from "./RacingCountForm.js";
 import GameResultContainer from "./GameResultContainer.js";
 import { ID } from "../utils/constants.js";
 import { hideContainer, showContainer } from "../utils/domUtil.js";
-import Car from "./Car.js";
+import { getMaxStep } from "../utils/util.js";
 
 export default class RacingCarGame {
   constructor() {
@@ -28,6 +29,10 @@ export default class RacingCarGame {
     this.carNameForm = new CarNameForm(this.setPlayers);
     this.racingCountForm = new RacingCountForm(this.setCount);
     this.gameResultContainer = new GameResultContainer();
+    this.gameResultContainer = new GameResultContainer(
+      this.getPlayers,
+      this.getWinners
+    );
   };
 
   setPlayers = namesList => {
@@ -45,6 +50,14 @@ export default class RacingCarGame {
   getPlayers = () => {
     return [...this.gameStatus.players];
   };
+
+  getWinners = () => {
+    const racingCars = this.getPlayers();
+    const maxStep = getMaxStep(racingCars);
+
+    return racingCars.filter(car => car.getStep() === maxStep);
+  };
+
   resetGameStatus = () => {
     this.gameStatus = { count: 0, players: [] };
   };

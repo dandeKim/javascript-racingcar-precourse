@@ -10,3 +10,9 @@ export const getRandomNumber = () => {
     NUMBER.MIN_RANDOM_NUMBER
   );
 };
+
+export const getMaxStep = cars => {
+  const allSteps = cars.map(car => car.getStep());
+
+  return Math.max.apply(null, allSteps);
+};
