@@ -3,6 +3,7 @@ import RacingCountForm from "./RacingCountForm.js";
 import GameResultContainer from "./GameResultContainer.js";
 import { ID } from "../utils/constants.js";
 import { hideContainer, showContainer } from "../utils/domUtil.js";
+import Car from "./Car.js";
 
 export default class RacingCarGame {
   constructor() {
@@ -24,9 +25,15 @@ export default class RacingCarGame {
   };
 
   createNewComponent = () => {
-    this.carNameForm = new CarNameForm();
+    this.carNameForm = new CarNameForm(this.setPlayers);
     this.racingCountForm = new RacingCountForm();
     this.gameResultContainer = new GameResultContainer();
+  };
+
+  setPlayers = namesList => {
+    this.gameStatus.players = namesList.map(name => new Car(name));
+
+    showContainer(this.$racingCountContainer);
   };
 
   resetGameStatus = () => {
