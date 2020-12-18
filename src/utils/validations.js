@@ -31,3 +31,13 @@ export const isValidCarNames = ($input, namesList) => {
 
   return isValid;
 };
+
+export const isValidRacingCount = ($input, racingCount) => {
+  const isValidNumber = racingCount > 0;
+
+  if (!isValidNumber) {
+    showAlertMessage($input, ALERT.INCORRECT_NUMBER_ALERT);
+  }
+
+  return isValidNumber;
+};
