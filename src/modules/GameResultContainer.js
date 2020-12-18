@@ -1,5 +1,4 @@
-import { ID } from "../utils/constants.js";
-import { playerHTML } from "../utils/templates.js";
+import { playerHTML, winnerHTML } from "../utils/templates.js";
 
 export default class GameResultContainer {
   constructor(getPlayers, getWinners) {
@@ -16,5 +15,11 @@ export default class GameResultContainer {
       .join("");
 
     return `<div>${result}</div>`;
+  };
+
+  createWinnerHTML = () => {
+    const winners = this.getWinners().map(winner => winner.getName());
+
+    return winnerHTML(winners);
   };
 }

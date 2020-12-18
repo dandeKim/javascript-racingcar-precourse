@@ -64,6 +64,8 @@ export default class RacingCarGame {
       this.$gameResultContainer.innerHTML += this.gameResultContainer.createResultHTML();
       this.gameStatus.count--;
     }
+
+    this.$gameResultContainer.innerHTML += this.gameResultContainer.createWinnerHTML();
   };
 
   resetGameStatus = () => {
