@@ -36,6 +36,12 @@ export default class RacingCarGame {
     showContainer(this.$racingCountContainer);
   };
 
+  setCount = count => {
+    this.gameStatus.count = count;
+
+    showContainer(this.$gameResultContainer);
+  };
+
   resetGameStatus = () => {
     this.gameStatus = { count: 0, players: [] };
   };
